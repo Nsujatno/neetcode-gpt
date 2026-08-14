@@ -1,3 +1,6 @@
+"""
+Better but not as efficient solution
+"""
 import numpy as np
 from numpy.typing import NDArray
 
@@ -9,10 +12,8 @@ class Solution:
         # Hint: subtract max(z) for numerical stability before computing exp
         # return np.round(your_answer, 4)
         max = np.max(z)
-        denominator = 0
+        denominator = np.sum(np.exp(z - max))
         res = []
-        for num in z:
-            denominator += np.exp(num - max)
         
         for num in z:
             numerator = np.exp(num - max)
