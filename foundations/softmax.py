@@ -12,7 +12,7 @@ class Solution:
         # Hint: subtract max(z) for numerical stability before computing exp
         # return np.round(your_answer, 4)
         max = np.max(z)
-        denominator = np.sum(np.exp(z - max))
-        numerator = np.exp(z - max)
+        exp = np.exp(z - max)
+        denominator = np.sum(exp)
         
-        return np.round(numerator / denominator, 4)
+        return np.round(exp / denominator, 4)
