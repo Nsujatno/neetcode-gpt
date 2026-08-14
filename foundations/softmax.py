@@ -1,5 +1,5 @@
 """
-Better, most efficient solution
+Better but not as efficient solution
 """
 import numpy as np
 from numpy.typing import NDArray
@@ -11,6 +11,12 @@ class Solution:
         # z is a 1D NumPy array of logits
         # Hint: subtract max(z) for numerical stability before computing exp
         # return np.round(your_answer, 4)
-        z_max = np.max(z)
-        exp_shifted = np.exp(z - z_max)
-        return np.round(exp_shifted / np.sum(exp_shifted), 4)
+        max = np.max(z)
+        denominator = np.sum(np.exp(z - max))
+        res = []
+        
+        for num in z:
+            numerator = np.exp(num - max)
+            res.append(numerator / denominator)
+        
+        return np.round(res, 4)
