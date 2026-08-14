@@ -13,10 +13,6 @@ class Solution:
         # return np.round(your_answer, 4)
         max = np.max(z)
         denominator = np.sum(np.exp(z - max))
-        res = []
+        numerator = np.exp(z - max)
         
-        for num in z:
-            numerator = np.exp(num - max)
-            res.append(numerator / denominator)
-        
-        return np.round(res, 4)
+        return np.round(numerator / denominator, 4)
